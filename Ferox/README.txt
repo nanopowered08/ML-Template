@@ -1,0 +1,1 @@
+This has to be the FASTEST model that gives a answer/TTFT in 0.5-0.9s. This should have a architecture inspired DIRECTLY by the Transformer.

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# PyTorch checkpoints
+*.pt
+*.pth
+*.bin
+checkpoints/
+
+# Training outputs
+runs/
+logs/
+outputs/
+
+# Datasets
+data/*.jsonl
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

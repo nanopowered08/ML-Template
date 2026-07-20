@@ -1,0 +1,1 @@
+This is a AI model name for a architecture that will be custom made, it should be a architecture inspired by the Transformer and LSTM.
