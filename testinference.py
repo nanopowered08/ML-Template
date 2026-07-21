@@ -18,11 +18,15 @@ model = FlexModel(
     config
 )
 
-
 generator = Generator(
     model,
     tokenizer,
-    device,
+    device="cpu"
+)
+
+
+generator.load_checkpoint(
+    "checkpoints/epoch_10.pt"
 )
 
 
@@ -40,9 +44,8 @@ tokens = generator.encode(
 
 
 output = generator.generate(
-    tokens,
-    max_new_tokens=20,
-    temperature=0.8,
+    generator.encode(prompt),
+    max_new_tokens=40,
 )
 
 

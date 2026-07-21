@@ -1,4 +1,5 @@
 import torch
+
 from common.sampling import sample
 
 
@@ -11,11 +12,63 @@ class Generator:
         device="cpu",
     ):
 
+        self.device = device
+
         self.model = model.to(device)
         self.model.eval()
 
         self.tokenizer = tokenizer
-        self.device = device
+
+
+    def load_checkpoint(
+        self,
+        path,
+    ):
+
+        checkpoint = torch.load(
+            path,
+            map_location=self.device,
+            weights_only=False,
+        )
+
+
+        if "model" in checkpoint:
+            state = checkpoint["model"]
+        else:
+            state = checkpoint
+
+
+        self.model.load_state_dict(
+            state
+        )
+
+        self.model.eval()
+
+
+    def encode(
+        self,
+        text,
+    ):
+
+        ids = self.tokenizer.encode(
+            text
+        )
+
+        return torch.tensor(
+            [ids],
+            dtype=torch.long,
+            device=self.device,
+        )
+
+
+    def decode(
+        self,
+        ids,
+    ):
+
+        return self.tokenizer.decode(
+            ids
+        )
 
 
     @torch.no_grad()
@@ -23,13 +76,10 @@ class Generator:
         self,
         input_ids,
         max_new_tokens=50,
-        temperature=1.0,
-        do_sample=True,
+        temperature=0.8,
+        top_k=50,
+        top_p=0.95,
     ):
-
-        input_ids = input_ids.to(
-            self.device
-        )
 
 
         for _ in range(max_new_tokens):
@@ -39,70 +89,25 @@ class Generator:
             )
 
 
-            # last token only
+            # last position
             logits = logits[:, -1, :]
 
 
-            if temperature > 0:
-
-                logits = logits / temperature
-
-
-            if do_sample:
-
-                probs = torch.softmax(
-                    logits,
-                    dim=-1,
-                )
-
-                next_token = sample(
-                     logits,
-                    temperature_value=temperature,
-                    top_k_value=top_k,
-                    top_p_value=top_p,
-                )
-
-            else:
-
-                next_token = torch.argmax(
-                    logits,
-                    dim=-1,
-                    keepdim=True,
-                )
+            token = sample(
+                logits,
+                temperature_value=temperature,
+                top_k_value=top_k,
+                top_p_value=top_p,
+            )
 
 
             input_ids = torch.cat(
                 [
                     input_ids,
-                    next_token,
+                    token,
                 ],
                 dim=1,
             )
 
 
         return input_ids
-
-
-    def encode(
-        self,
-        text,
-    ):
-
-        tokens = self.tokenizer.encode(
-            text
-        )
-
-        return torch.tensor(
-            [tokens],
-            dtype=torch.long,
-        )
-
-
-    def decode(
-        self,
-        tokens,
-    ):
-
-        return self.tokenizer.decode(
-            tokens
-        )
