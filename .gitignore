@@ -1,4 +1,5 @@
 # Python
+*/__pycache__/
 __pycache__/
 *.pyc
 *.pyo
@@ -11,7 +12,6 @@ venv/
 *.pt
 *.pth
 *.bin
-checkpoints/
 
 # Training outputs
 runs/
@@ -35,8 +35,7 @@ Thumbs.db
 # Temporary files
 *.tmp
 
-# Also checkpoints?
-checkpoints/
+# Also more checkpoints?
 checkpoints/*
 checkpoints/*.*
 checkpoints/*.jsonl
