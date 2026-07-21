@@ -26,6 +26,20 @@ class FlexConfig:
     # Training
     pad_token_id: int = 100279
 
+    batch_size: int = 1
+    epochs = 10
+
+    learning_rate = 1e-4
+    weight_decay = 0.01
+
+    warmup_steps = 1
+
+    grad_clip = 1.0
+
+    log_every = 1
+
+    checkpoint_dir = "checkpoints"
+
     @property
     def head_dim(self) -> int:
         if self.d_model % self.n_heads != 0:

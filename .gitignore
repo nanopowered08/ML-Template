@@ -19,7 +19,11 @@ logs/
 outputs/
 
 # Datasets
+data/
+data/*
+data/*.*
 data/*.jsonl
+data/data.jsonl
 
 # IDE
 .vscode/
@@ -28,3 +32,22 @@ data/*.jsonl
 # OS files
 .DS_Store
 Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints/ 
+
+# Miscellaneous
+*.log
+
+# Temporary files
+*.tmp
+
+# Everything else that isnt covered
+*
+
+# Also checkpoints?
+checkpoints/
+checkpoints/*
+checkpoints/*.*
+checkpoints/*.jsonl
+checkpoints/*.pt
