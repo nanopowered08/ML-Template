@@ -1,4 +1,5 @@
 import torch
+from common.sampling import sample
 
 
 class Generator:
@@ -54,9 +55,11 @@ class Generator:
                     dim=-1,
                 )
 
-                next_token = torch.multinomial(
-                    probs,
-                    num_samples=1,
+                next_token = sample(
+                     logits,
+                    temperature_value=temperature,
+                    top_k_value=top_k,
+                    top_p_value=top_p,
                 )
 
             else:
