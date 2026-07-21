@@ -4,6 +4,10 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Yes.
+data/*.json
+data/*.jsonl
+
 # Virtual environments
 .venv/
 venv/
