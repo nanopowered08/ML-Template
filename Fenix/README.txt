@@ -1,1 +1,0 @@
-This model has to beat context rotting. So, it should have a architecture inspired by state-space models and also LSTMs.
