@@ -18,13 +18,6 @@ runs/
 logs/
 outputs/
 
-# Datasets
-data/
-data/*
-data/*.*
-data/*.jsonl
-data/data.jsonl
-
 # IDE
 .vscode/
 .idea/
@@ -41,9 +34,6 @@ Thumbs.db
 
 # Temporary files
 *.tmp
-
-# Everything else that isnt covered
-*
 
 # Also checkpoints?
 checkpoints/
