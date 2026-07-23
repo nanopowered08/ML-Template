@@ -39,6 +39,16 @@ The tests are intentionally simple. They exist to verify that the framework work
 Datasets should be stored in the JSONL format. The example model (`flux/`)
 Place your training dataset in `data/data.jsonl`.
 If the `data/` directory doesn't exist yet, simply create it.
+The data.jsonl has to be formatted in the ChatML format, for example: 
+
+`{
+  "messages": [
+    { "role": "system", "content": "You are a helpful assistant." },
+    { "role": "user", "content": "Hello!" },
+    { "role": "assistant", "content": "Hi there! How can I help you today?" }
+  ]
+}`
+
 ## Why is the test model called Flex?
 This repository is a template, and templates need an example implementation. The included example model is named Flex, and many of the tests reference it for demonstration purposes.
 Feel free to rename or replace it with your own architecture.
