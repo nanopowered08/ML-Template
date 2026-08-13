@@ -1,55 +1,88 @@
-# ML Template "Flexit" (Don't Confuse It with Flexi)
-Flexit was originally intended to be a private machine learning framework. However, the project became larger than expected, so I've decided to make it public.
-If you're interested in building an AI model from scratch, you can use this project as a learning resource or as a starting template for your own architecture.
-This ML Template uses the Transformer, the very same architecture ChatGPT, Gemini, Claude, DeepSeek, Qwen, GLM, Gemma, GPT-OSS, and other models being hosted.
-# Features
-- Generic training pipeline
-- Generic benchmarking framework
-- Generic evaluation framework
-- Designed to be adaptable to different model architectures
-- JSONL dataset support
-- History filtering instead of Git LFS, keeping the repository lightweight
-## Where do I start..?
-Install the dependencies:
-`pip install -r requirements.txt`
-Now, run the tests with your data/data.jsonl. [How do I format my dataset?](#how-do-i-format-my-dataset)
+# Flexit
 
-After that, you can build your own model architecture on top of the framework and train it using the included trainer.
-## Unit Tests?
-Basically, the project includes unit tests covering many components, including:
-- Inference
-- Attention
-- Transformer blocks
-- Embeddings
-- Token encoding
-- Dataset loading
-- Data collators
-- Training
-- Evaluation
-- Benchmarking
-- Loss functions
-- Metrics
-- Optimizers
-- Schedulers
-- Sampling
-- Model configuration
-- The example Flex model
-The tests are intentionally simple. They exist to verify that the framework works correctly while remaining easy to understand.
+*(not to be confused with "Flexi".. idk if that exists)*
+
+Flexit is supposed to be a ML Template based on the Transformer that powers *′*ChatGPT, Gemini, Claude, DeepSeek, Qwen, GLM, Gemma, and GPT-OSS.
+
+*′* Note: Im talking about the architecture powering those not the ML Template powering it.
+
+THIS started as a private template cuz i wanna make a model for myself, but it GOT SO big + grew into something worth sharing. ID LET YOU use it as a **learning resource** to understand how modern LLMs are built or as a **starting template** for your own model architecture.
+
+---
+
+## ANDDD WE HAVE-
+
+- A generic training pipeline
+- AND a generic benchmarking framework
+- YEP EVERYTHING IS GENERIC, so also generic evaluation framework
+- Adaptable to different model architectures cuz LOOK AT THE LAST 3 POINTS.
+- JSONL dataset support ONLY.
+- History got rewritten by the filter erasing that 300MB test model
+
+---
+
+## Where do I start?
+
+**1. Install the deps**
+```bash
+pip install -r requirements.txt
+```
+
+**2. Format the dataset.**
+
+Place your training data at `data/data.jsonl` (create the `data/` folder if it doesn't exist). [How do I format my dataset?](#-how-do-i-format-my-dataset)
+
+**3. TEST the thing.**
+
+Verify everything works with the included test suite (see [the unit tests](#-unit-tests-literally)).
+
+**4. Build your model**
+
+Use the `flex/` example model as a reference, then build and train your own architecture on top of the framework using the included trainer.
+
+---
+
+## Unit Tests... LITERALLY.
+
+The project ships with tests covering the core framework components:
+
+| Category | Covers |
+|---|---|
+| Model internals | Attention, Transformer blocks, Embeddings, Token encoding |
+| Data | Dataset loading, Data collators |
+| Training | Training loop, Loss functions, Optimizers, Schedulers |
+| Evaluation | Evaluation, Benchmarking, Metrics, Sampling |
+| Config & Inference | Model configuration, Inference, the example Flex model |
+
+Tests are intentionally simple CUZ-
+They exist to confirm the framework behaves correctly, while staying easy to read and learn from.
+
+---
+
 ## How do I format my dataset?
-Datasets should be stored in the JSONL format. The example model (`flux/`)
-Place your training dataset in `data/data.jsonl`.
-If the `data/` directory doesn't exist yet, simply create it.
-The data.jsonl has to be formatted in the ChatML format, for example: 
 
-`{
+Datasets use the **JSONL** format, with each line following the **ChatML** structure:
+
+```jsonl
+{
   "messages": [
     { "role": "system", "content": "You are a helpful assistant." },
     { "role": "user", "content": "Hello!" },
     { "role": "assistant", "content": "Hi there! How can I help you today?" }
   ]
-}`
+}
+```
 
-## Why is the test model called Flex?
-This repository is a template, and templates need an example implementation. The included example model is named Flex, and many of the tests reference it for demonstration purposes.
-Feel free to rename or replace it with your own architecture.
-"Call this template Flex. Let the Transformer flex its power."
+Place your file at `data/data.jsonl`.
+Trust me.
+
+---
+
+## SO why "Flex"?
+
+Every template needs a working example.. SO-
+This one's called **Flex**, and most of the tests reference it for demonstration. Rename it, gut it, or replace it entirely with your own architecture.
+
+Also my brain was thinking:
+
+> Call this template Flex. Let the Transformer flex its power.
