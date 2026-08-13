@@ -30,11 +30,11 @@ pip install -r requirements.txt
 
 **2. Format the dataset.**
 
-Place your training data at `data/data.jsonl` (create the `data/` folder if it doesn't exist). [How do I format my dataset?](#-how-do-i-format-my-dataset)
+Place your training data at `data/data.jsonl` (create the `data/` folder if it doesn't exist). [How do I format my dataset?](#how-do-i-format-my-dataset)
 
 **3. TEST the thing.**
 
-Verify everything works with the included test suite (see [the unit tests](#-unit-tests-literally)).
+Verify everything works with the included test suite (see [the unit tests](#unit-tests-literally)).
 
 **4. Build your model**
 
