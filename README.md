@@ -2,9 +2,9 @@
 
 *(not to be confused with "Flexi".. idk if that exists)*
 
-Flexit is supposed to be a ML Template based on the Transformer that powers *′* ChatGPT, Gemini, Claude, DeepSeek, Qwen, GLM, Gemma, and GPT-OSS.
+Flexit is supposed to be a ML Template based on the Transformer that powers *(′)* ChatGPT, Gemini, Claude, DeepSeek, Qwen, GLM, Gemma, and GPT-OSS.
 
-*′* Note: Im talking about the architecture powering those not the ML Template powering it.
+*(′)* Note: Im talking about the architecture powering those not the ML Template powering it.
 
 THIS started as a private template cuz i wanna make a model for myself, but it GOT SO big + grew into something worth sharing. ID LET YOU use it as a **learning resource** to understand how modern LLMs are built or as a **starting template** for your own model architecture.
 
